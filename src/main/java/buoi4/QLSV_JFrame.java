@@ -271,7 +271,8 @@ public class QLSV_JFrame extends javax.swing.JFrame {
         khoiTaoGiaoDien();
     }//GEN-LAST:event_btnXoaFormActionPerformed
 
-    private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
+    private SinhVien docForm() 
+    {
         String hoTen = this.txtHoTen.getText();
         String maSV = this.txtMaSV.getText();
         String queQuan = this.txtQueQuan.getText();
@@ -281,14 +282,35 @@ public class QLSV_JFrame extends javax.swing.JFrame {
         int gioiTinh;
 //        int gioiTinh = gtNam == true ? 1 : 0;
 
+        if (
+            hoTen.length() == 0 ||
+            maSV.length() == 0 ||
+            queQuan.length() == 0 ||
+            diaChi.length() == 0
+        ) {
+            System.out.println("Không được để trống!");
+            
+            return null;
+        }
+
         if (gtNam == true) {
             gioiTinh = 1;
         } else {
             gioiTinh = 0;
         }
-        
+
         String chuyenNganh = (String) this.cbbChuyenNganh.getSelectedItem();
         SinhVien sv = new SinhVien(maSV, chuyenNganh, hoTen, gioiTinh, queQuan, diaChi);
+
+        return sv;
+    }
+    
+    private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
+        SinhVien sv = this.docForm();
+        
+        if (sv == null) {
+            return ;
+        }
         
         // Thêm SV vào ArrayList
         this.qlsv.them(sv);
@@ -346,13 +368,11 @@ public class QLSV_JFrame extends javax.swing.JFrame {
             return ;
         }
         
-        String maSV = this.txtMaSV.getText();
-        // Tương tự các giá trị khác
+        SinhVien sv = this.docForm();
         
-        SinhVien sv = (SinhVien) this.qlsv.xuatDanhSach().get(viTri);
-        
-        sv.setMaSV(maSV);
-        // Tương tự với các giá trị khác
+        if (sv == null) {
+            return ;
+        }
         
         this.qlsv.xuatDanhSach().set(viTri, sv);
         this.hienThiTable();
