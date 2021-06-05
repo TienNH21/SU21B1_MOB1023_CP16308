@@ -46,4 +46,9 @@ public class QuanLyDanhSach implements QuanLyInterface {
         this.danhSach.add(sv2);
         this.danhSach.add(sv3);
     }
+
+    @Override
+    public void setDanhSach(ArrayList<Nguoi> list) {
+        this.danhSach = list;
+    }
 }

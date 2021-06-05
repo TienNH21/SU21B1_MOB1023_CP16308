@@ -5,6 +5,7 @@
  */
 package buoi1;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,4 +17,5 @@ public interface QuanLyInterface {
     public Nguoi xoa(int viTri);
     public List<Nguoi> xuatDanhSach();
     public void taoDoiTuongAo();
+    public void setDanhSach(ArrayList<Nguoi> list);
 }

@@ -9,7 +9,13 @@ import buoi1.Nguoi;
 import buoi1.QuanLyDanhSach;
 import buoi1.QuanLyInterface;
 import buoi1.SinhVien;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.ObjectInputStream;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -54,6 +60,8 @@ public class QLSV_JFrame extends javax.swing.JFrame {
         btnUpdate = new javax.swing.JButton();
         btnXoa = new javax.swing.JButton();
         btnXoaForm = new javax.swing.JButton();
+        btnGhiFile = new javax.swing.JButton();
+        btnDocFile = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblSinhVien = new javax.swing.JTable();
@@ -109,6 +117,20 @@ public class QLSV_JFrame extends javax.swing.JFrame {
             }
         });
 
+        btnGhiFile.setText("Ghi file");
+        btnGhiFile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGhiFileActionPerformed(evt);
+            }
+        });
+
+        btnDocFile.setText("Đọc file");
+        btnDocFile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDocFileActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -141,12 +163,16 @@ public class QLSV_JFrame extends javax.swing.JFrame {
                             .addComponent(cbbChuyenNganh, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnThem)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnUpdate)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnXoa)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnXoaForm)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnGhiFile)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnDocFile)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -177,7 +203,9 @@ public class QLSV_JFrame extends javax.swing.JFrame {
                     .addComponent(btnThem)
                     .addComponent(btnUpdate)
                     .addComponent(btnXoa)
-                    .addComponent(btnXoaForm))
+                    .addComponent(btnXoaForm)
+                    .addComponent(btnGhiFile)
+                    .addComponent(btnDocFile))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
@@ -219,7 +247,7 @@ public class QLSV_JFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 383, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnTaoDoiTuongAo))
                     .addComponent(jScrollPane1))
                 .addContainerGap())
@@ -379,6 +407,36 @@ public class QLSV_JFrame extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnUpdateActionPerformed
 
+    private void btnGhiFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGhiFileActionPerformed
+        // Đọc dữ liệu từ ArrayList trong qlsv
+        // Dùng ObjectOutputStream để ghi vào file
+    }//GEN-LAST:event_btnGhiFileActionPerformed
+
+    private void btnDocFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDocFileActionPerformed
+        String filename = "src/main/java/buoi1/data.txt";
+        ArrayList<Nguoi> list = new ArrayList<>();
+        
+        try {
+            FileInputStream fis = new FileInputStream(filename);
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            
+            while ( ois.available() != 0 ) {
+                SinhVien sv = (SinhVien) ois.readObject();
+                list.add(sv);
+            }
+
+            fis.close();
+            ois.close();
+            this.qlsv.setDanhSach(list);
+            this.hienThiTable();
+        } catch (Exception e) {
+            System.out.println("Đọc file thất bại");
+            e.printStackTrace();
+        }
+        
+        this.hienThiTable();
+    }//GEN-LAST:event_btnDocFileActionPerformed
+
     private void hienThiTable()
     {
         DefaultTableModel dtm = (DefaultTableModel) this.tblSinhVien.getModel();
@@ -457,6 +515,8 @@ public class QLSV_JFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDocFile;
+    private javax.swing.JButton btnGhiFile;
     private javax.swing.ButtonGroup btnGroupGioiTinh;
     private javax.swing.JButton btnTaoDoiTuongAo;
     private javax.swing.JButton btnThem;
