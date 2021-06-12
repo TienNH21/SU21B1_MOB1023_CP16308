@@ -276,7 +276,7 @@
                       <Group type="102" attributes="0">
                           <Component id="lblClock" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
-                          <Component id="lblTextRun" min="-2" pref="109" max="-2" attributes="0"/>
+                          <Component id="jLabel7" min="-2" pref="109" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="btnTaoDoiTuongAo" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -293,7 +293,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btnTaoDoiTuongAo" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblClock" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblTextRun" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" pref="188" max="-2" attributes="0"/>
@@ -379,9 +379,9 @@
             <Property name="text" type="java.lang.String" value="00:00:00"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblTextRun">
+        <Component class="javax.swing.JLabel" name="jLabel7">
           <Properties>
-            <Property name="text" type="java.lang.String" value="FPT PolyTechnic "/>
+            <Property name="text" type="java.lang.String" value="FPT Polytechnic "/>
           </Properties>
         </Component>
       </SubComponents>

@@ -67,7 +67,7 @@ public class QLSV_JFrame extends javax.swing.JFrame {
         tblSinhVien = new javax.swing.JTable();
         btnTaoDoiTuongAo = new javax.swing.JButton();
         lblClock = new javax.swing.JLabel();
-        lblTextRun = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -243,7 +243,7 @@ public class QLSV_JFrame extends javax.swing.JFrame {
 
         lblClock.setText("00:00:00");
 
-        lblTextRun.setText("FPT PolyTechnic ");
+        jLabel7.setText("FPT Polytechnic ");
 
         javax.swing.GroupLayout panelTblLayout = new javax.swing.GroupLayout(panelTbl);
         panelTbl.setLayout(panelTblLayout);
@@ -255,7 +255,7 @@ public class QLSV_JFrame extends javax.swing.JFrame {
                     .addGroup(panelTblLayout.createSequentialGroup()
                         .addComponent(lblClock)
                         .addGap(73, 73, 73)
-                        .addComponent(lblTextRun, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnTaoDoiTuongAo))
                     .addComponent(jScrollPane1))
@@ -268,7 +268,7 @@ public class QLSV_JFrame extends javax.swing.JFrame {
                 .addGroup(panelTblLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnTaoDoiTuongAo)
                     .addComponent(lblClock)
-                    .addComponent(lblTextRun))
+                    .addComponent(jLabel7))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -542,10 +542,10 @@ public class QLSV_JFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblClock;
-    private javax.swing.JLabel lblTextRun;
     private javax.swing.JPanel panelTbl;
     private javax.swing.JRadioButton radioGioiTinhNam;
     private javax.swing.JRadioButton radioGioiTinhNu;
